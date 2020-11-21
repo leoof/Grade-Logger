@@ -8,7 +8,7 @@ usernameAttempt = input("Please enter your username: ")
 passwordAttempt = input("Please enter your password: ")
 classCode = input("Enter the class code: ")
 
-f = open(classCode, "w+")
+gradeFile = open(classCode, "w+")
 
 # Step 1 function
 def step1():
@@ -23,11 +23,11 @@ def step1():
         # NOTE/TODO: What happens if they don't enter their grades in the above format? I'd validate that here:
         # .....
         
-        f.write(grades)
-        f.write("\n")
+        # Writing the entered grades into the file
+        gradeFile.write(grades)
+        gradeFile.write("\n")
         
         isDone = bool(input("Are you finished? "))
-        
         
         if !isDone:
             step1()
@@ -37,11 +37,18 @@ def step1():
             
 # Helper function to print the banner
 def printWelcomeBannerHelper():
-    print("===================")
-    print("Welcome to the Grade Calculator.")
-    print("===================")
+    # Open the file 
+    welcomeFile = open('welcome.txt')
+    
+    # Iterating over the lines that the file returns
+    for currentLine in lines:
+        # Print that line
+        print(currentLine)
+ 
+    # Once iteration 
+    welcomeFile.close()
 
-
+# TODO: Clean this up
 if usernameAttempt != username or passwordAttempt != password:
     print("You have entered an incorrect username or password. Please try again.")
     exit()
